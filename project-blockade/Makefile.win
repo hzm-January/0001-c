@@ -1,0 +1,34 @@
+# Project: blockade
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o coordinate.o color.o
+LINKOBJ  = main.o coordinate.o color.o
+LIBS     = -L"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/lib" -L"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/include" -I"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/include" -I"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/tool_develop/dev-c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = blockade.exe
+CXXFLAGS = $(CXXINCS) -std=c99 -g3
+CFLAGS   = $(INCS) -std=c99 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+coordinate.o: coordinate.c
+	$(CC) -c coordinate.c -o coordinate.o $(CFLAGS)
+
+color.o: color.c
+	$(CC) -c color.c -o color.o $(CFLAGS)

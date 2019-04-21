@@ -24,7 +24,9 @@
 		6.1 数组下标允许使用负数，是数组越界的一种 
 		6.2 下标越界是运行时异常 
 		6.3 如果数组下标越界，会访问到内存中相应的地址，如果地址允许访问会打印莫名其妙的数据，如果地址不允许访问会报运行时异常
-		 
+	7. 栈区数组和堆区数组
+		栈区数组：直接定义数组，不申请空间 
+		堆区数组：申请空间，存储数据	 
 	 
 */
 #define ARRAY_LENGTH 10
@@ -95,6 +97,8 @@ void main()
 // 
 void iterator(int array [], int length)
 {
+//	printf("the array is %d\n", sizeof(array)); 
+//	printf("the array is %p\n", array); 
 	printf("the length of the array is %d\n", length); 
 	for(int i =0; i<length;i++){
 		printf("%d ", array[i]);
